@@ -10,10 +10,7 @@ def max_path_sum(t):
         return label(t)+max([max_path_sum(b) for b in branches(t)])
 
 def square_tree(t):
-    if is_leaf(t):
-        return label(t)**2
-    else:
-        return tree(label(t)**2,[[square_tree(b)] for b in branches(t)])
+    return tree(label(t)**2,[square_tree(b) for b in branches(t)])
 
 def find_path(tree,x):
     if label(tree) == x:
